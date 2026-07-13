@@ -1,0 +1,174 @@
+  html { scroll-behavior: smooth; }
+  body { margin: 0; background: #e7e4d8; color: #3c423c; font-family: 'Noto Sans JP', sans-serif; -webkit-font-smoothing: antialiased; }
+  @keyframes lpChevron { 0%, 100% { transform: translateY(0); opacity: 0.5; } 50% { transform: translateY(8px); opacity: 1; } }
+  @keyframes lpNudge { 0%, 100% { transform: translateX(0); } 50% { transform: translateX(4px); } }
+  @keyframes lpFloat { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
+  a { color: #2e5c40; text-decoration: none; }
+  a:hover { color: #1d4230; }
+  * { box-sizing: border-box; }
+
+/* ================= ホバー効果 ================= */
+.btn-primary:hover { background: #1d4230; color: #ffffff; }
+.btn-secondary:hover { background: #f0f4ee; color: #1d4230; }
+.btn-submit:hover { background: #1d4230; }
+.carousel-nav:hover { background: #ffffff; }
+.footer-link:hover { color: #ffffff; }
+
+/* ================= PC（デスクトップ）表示 ================= */
+@media (min-width: 980px) {
+  body { background: #e7e4d8; }
+
+  #lp-root {
+    max-width: 1040px !important;
+    margin: 40px auto !important;
+    min-height: auto !important;
+    border-radius: 24px !important;
+    box-shadow: 0 24px 64px rgba(46,92,64,0.2) !important;
+  }
+
+  /* ヘッダー：ロゴ＋ナビ */
+  header[data-screen-label="ヘッダー"] {
+    justify-content: space-between !important;
+    align-items: center !important;
+    padding: 18px 44px !important;
+  }
+  .lp-desktop-nav { display: flex !important; align-items: center; gap: 30px; }
+  .lp-desktop-nav a { color: #f0f4ee; font-size: 13px; letter-spacing: 0.08em; font-weight: 700; }
+  .lp-desktop-nav a:hover { color: #ffffff; }
+  .lp-desktop-nav a.lp-nav-cta { background: #ffffff; color: #2e5c40 !important; padding: 9px 18px; border-radius: 999px; }
+  .lp-desktop-nav a.lp-nav-cta:hover { background: #f0f4ee; }
+
+  /* ヒーロー：2カラム */
+  section[data-screen-label="ヒーロー"] {
+    display: flex !important;
+    align-items: center !important;
+    gap: 56px !important;
+    padding: 72px 48px !important;
+  }
+  section[data-screen-label="ヒーロー"] > div:nth-of-type(1) {
+    flex: 0 0 460px !important;
+    height: 480px !important;
+    margin: 0 !important;
+  }
+  section[data-screen-label="ヒーロー"] > div:nth-of-type(2) {
+    flex: 1 1 420px !important;
+    margin: 0 !important;
+  }
+
+  /* ヒーロー下CTAボタン：横並び */
+  div[data-screen-label="ヒーローCTA"] {
+    flex-direction: row !important;
+    justify-content: center !important;
+    gap: 24px !important;
+    max-width: 640px !important;
+    margin: 0 auto !important;
+    padding: 40px 22px 56px !important;
+  }
+  div[data-screen-label="ヒーローCTA"] > a { flex: 1 1 auto !important; }
+
+  /* 選ばれる理由イントロ */
+  section[data-screen-label="選ばれる理由イントロ"] > p {
+    max-width: 42em !important;
+  }
+  section[data-screen-label="選ばれる理由イントロ"] > div:nth-of-type(2) {
+    max-width: 640px !important;
+    margin: 0 auto 40px !important;
+  }
+  section[data-screen-label="選ばれる理由イントロ"] > div:nth-of-type(3) {
+    grid-template-columns: repeat(3, 160px) !important;
+    justify-content: center !important;
+    gap: 28px !important;
+    margin: 0 auto 20px !important;
+  }
+  section[data-screen-label="選ばれる理由イントロ"] > div:nth-of-type(4) {
+    gap: 28px !important;
+  }
+
+  /* こんなお悩みありませんか：2×2グリッド */
+  section[data-screen-label="こんなお悩みありませんか"] > div:nth-of-type(1) {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 34px 44px !important;
+    max-width: 880px !important;
+    margin: 0 auto !important;
+  }
+
+  /* なぜ変わるのか：写真バナー幅を制限 */
+  section[data-screen-label="なぜ変わるのか"] > div {
+    max-width: 900px !important;
+    margin: 0 auto !important;
+    height: 480px !important;
+  }
+
+  /* 3つの変化：見出し・各カードを中央寄せカラムに */
+  section[data-screen-label="3つの変化"] > h2,
+  section[data-screen-label="3つの変化"] > p {
+    max-width: 720px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+  section[data-screen-label="3つの変化"] > div[data-screen-label^="理由"] {
+    max-width: 780px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+  /* 理由02：2枚のカードを横並びに */
+  div[data-screen-label="理由02 経験"] > div:nth-of-type(3) {
+    flex-direction: row !important;
+    gap: 20px !important;
+  }
+  div[data-screen-label="理由02 経験"] > div:nth-of-type(3) > div {
+    flex: 1 1 0 !important;
+  }
+
+  /* 対応の流れ：3列グリッド */
+  #flow > div {
+    display: grid !important;
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 16px !important;
+    max-width: 900px !important;
+    margin: 0 auto !important;
+  }
+
+  /* 会社概要：幅を制限して中央寄せ */
+  section[data-screen-label="会社概要"] > div {
+    max-width: 780px !important;
+    margin: 0 auto !important;
+  }
+
+  /* FAQ：2列グリッド */
+  #faq > div {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 18px 24px !important;
+    max-width: 900px !important;
+    margin: 0 auto !important;
+  }
+
+  /* 最終CTA：電話ボックスとフォームの幅を制限、フォームは2列 */
+  #contact > div:nth-of-type(1) {
+    max-width: 680px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+  #contact > div:nth-of-type(2) {
+    max-width: 680px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    padding: 36px 44px 40px !important;
+  }
+  #contact > div:nth-of-type(2) > div {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 18px 22px !important;
+  }
+  #contact > div:nth-of-type(2) > div > div:nth-child(5),
+  #contact > div:nth-of-type(2) > div > div:nth-child(6),
+  #contact > div:nth-of-type(2) > div > button,
+  #contact > div:nth-of-type(2) > div > p {
+    grid-column: 1 / -1 !important;
+  }
+
+  /* フッター */
+  footer { padding: 40px 44px 48px !important; }
+}
